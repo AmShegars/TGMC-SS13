@@ -118,8 +118,6 @@
 	dash_sparks_right.layer = layer-0.001
 	. = ..()
 
-	set_jump_component()
-
 	for(var/key in limbs)
 		if(!limbs[key])
 			continue
@@ -127,6 +125,9 @@
 		limbs[key] = null
 		var/datum/mech_limb/limb = new new_limb_type
 		limb.attach(src, key)
+
+	if(!is_heavy())
+		set_jump_component()
 
 /obj/vehicle/sealed/mecha/greyscale/obj_destruction(damage_amount, damage_type, damage_flag, mob/living/blame_mob)
 	playsound(get_turf(src), SFX_EXPLOSION_MED, 100, TRUE) //destroy sound is normally very quiet
@@ -205,8 +206,14 @@
 	SIGNAL_HANDLER
 	check_dash(WEST)
 
+///Heavy (vanguard legged) mechs are too bulky to dash or jump
+/obj/vehicle/sealed/mecha/greyscale/proc/is_heavy()
+	return istype(limbs[MECH_GREY_LEGS], /datum/mech_limb/legs/vanguard)
+
 /// Checks if we can dash in the specified direction, and activates the ability if so.
 /obj/vehicle/sealed/mecha/greyscale/proc/check_dash(direction)
+	if(is_heavy())
+		return
 	if(last_move_dir == direction && last_mousedown_time + double_tap_timing > world.time)
 		if(TIMER_COOLDOWN_RUNNING(src, COOLDOWN_MECHA_DASH))
 			for(var/mob/occupant AS in return_drivers())
