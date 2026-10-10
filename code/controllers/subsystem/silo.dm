@@ -31,7 +31,7 @@ SUBSYSTEM_DEF(silo)
 	//We scale the rate based on the current ratio of humans to xenos
 	var/current_human_to_xeno_ratio = active_humans / active_xenos
 	var/optimal_human_to_xeno_ratio = xeno_job.job_points_needed / LARVA_POINTS_REGULAR
-	current_larva_spawn_rate *= clamp(round(current_human_to_xeno_ratio / optimal_human_to_xeno_ratio, 0.01), 0.5, 2)
+	current_larva_spawn_rate *= clamp(round((current_human_to_xeno_ratio / optimal_human_to_xeno_ratio - 0.5) * (5 / 3), 0.01), 0, 2)
 
 	GLOB.round_statistics.larva_from_silo += current_larva_spawn_rate / xeno_job.job_points_needed
 
