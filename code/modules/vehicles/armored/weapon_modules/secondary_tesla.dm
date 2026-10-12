@@ -2,7 +2,7 @@
 /obj/item/armored_weapon/secondary_tesla
 	name = "\improper SHG secondary tesla"
 	desc = "Увеличенная тесла-шок пушка морпехов с питанием от техники. Идеально для поддержки со спины."
-	icon_state = "sflamer"
+	icon_state = "tesla"
 	hud_state_empty = "flame_empty"
 	interior_fire_sound = null
 	armored_weapon_flags = MODULE_SECONDARY
