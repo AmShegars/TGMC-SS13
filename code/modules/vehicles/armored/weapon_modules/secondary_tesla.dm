@@ -1,6 +1,6 @@
 //Довольно глупо реализовывать механику энергооружия для техники лишь для теслы. Сделаем костыль.
 /obj/item/armored_weapon/secondary_tesla
-	name = "\improper SHG secondary tesla"
+	name = "\improper SHG-BLCK secondary tesla"
 	desc = "Увеличенная тесла-шок пушка морпехов с питанием от техники. Идеально для поддержки со спины."
 	icon_state = "tesla"
 	hud_state_empty = "flame_empty"
