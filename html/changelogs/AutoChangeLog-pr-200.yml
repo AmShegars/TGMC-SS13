@@ -1,0 +1,4 @@
+author: "Stego-byte"
+delete-after: True
+changes:
+  - bugfix: "Бегемот теперь не отталкивается танком"
