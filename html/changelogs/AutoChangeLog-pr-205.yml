@@ -1,0 +1,5 @@
+author: "Misterionno"
+delete-after: True
+changes:
+  - balance: "Бафф урона снарядов ховитзера. HE 200 > 350, incediary 70 > 100 flame radius 5>6."
+  - balance: "Привязанные к биноклю орудия получают координаты все сразу, больше не нужно наводить каждое отдельно."
